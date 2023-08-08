@@ -1,0 +1,9 @@
+--- 
+
+- hosts: linux
+  become: yes
+  tasks:
+    - name: elimina de manera recursiva el folder.
+      file:
+        path: /var/tmp/folder1
+        state: absent

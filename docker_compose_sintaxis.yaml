@@ -1,0 +1,24 @@
+---
+
+# hosts: Lista de hosts en donde se ejecutará el play. 
+
+  hosts:
+  gather_facts: False
+
+# vars: Aquellos que se aplicarán al play.
+
+  variable: 
+
+# tasks: Lista todas las tareas que se ejecutarán dentro del play.
+
+  task:
+
+# handlers: Lista los handlers que son ejecutado como notificación de una tarea.
+
+  handlers:
+
+# roles: Lista de roles a ser importados dentro del play
+
+  roles:
+
+...

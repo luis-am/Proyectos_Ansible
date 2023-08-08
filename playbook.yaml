@@ -1,0 +1,26 @@
+---
+
+  hosts: alma
+  gather_facts: False
+
+  # Vars: variables that will apply to the play, on all target systems
+  variable: "Hola mundo cruel."
+
+  # Tasks: the list of tasks that will be executed within the play, this section
+  #       can also be used for pre and post tasks
+  task:
+    - name: Cambiar el MOTD
+      copy:
+        content: "{{ variable }}"
+        dest: /etc/motd/.config.md
+        notify: MOTD debug
+
+  # Handlers: the list of handlers that are executed as a notify key from a task
+  handlers:
+    - name: MOTD debug
+      msg: Este es un mensaje de prueba.
+
+  # Roles: list of roles to be imported into the play
+
+# Three dots indicate the end of a YAML document
+...

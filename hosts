@@ -1,0 +1,13 @@
+[mint_linux]
+mint ansible_port=22
+
+[debian_linux]
+debian ansible_port=22
+
+[alma_linux]
+alma ansible_port=22
+
+[linux:children]
+mint_linux
+debian_linux
+alma_linux

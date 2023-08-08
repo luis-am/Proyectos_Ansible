@@ -1,0 +1,6 @@
+debian ansible_port=22
+mint ansible_port=22
+
+[servidores]
+debian
+mint
