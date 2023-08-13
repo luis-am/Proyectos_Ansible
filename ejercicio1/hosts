@@ -1,6 +1,28 @@
-debian ansible_port=22
-mint ansible_port=22
+### GRUPO DEBIAN
 
-[servidores]
-debian
+[debian_group]
 mint
+debian
+
+[debian_group:vars]
+ansible_ports = 22
+
+
+
+### GRUPO REDHAT
+
+[redhat_group]
+alma
+
+[redhat_group:vars]
+ansible_ports = 22
+
+
+
+### RELACION PADRE:HIJO
+
+[linux:children]
+debian_group
+redhat_group
+
+[linux:vars]

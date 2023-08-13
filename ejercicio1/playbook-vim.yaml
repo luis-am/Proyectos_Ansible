@@ -1,0 +1,53 @@
+
+---
+
+- name: Instalación de vim en grupo debian
+  hosts: debian_group
+  become: True
+  gather_facts: False
+
+  tasks:
+    - name: Instalar vim
+      ansible.builtin.apt:
+        name: neovim
+        state: present
+        #state: absent
+
+    #- name: Copiar archivo vim
+      #file:
+        #path: /home//.vimrc 
+        #state: touch
+        #mode: u=rw,g=r,o=r
+
+- name: Instalación de vim en grupo redhat
+  hosts: redhat_group
+  become: True
+  gather_facts: False
+
+  tasks:
+    - name: Instalar vim
+      ansible.builtin.dnf:
+        name: neovim
+        state: present
+        #state: absent
+
+    - name: Crear archivo vim
+      file:
+        path: /home/alma_user/.vimrc 
+        state: touch
+        mode: u=rw,g=r,o=r
+        owner: alma_user
+        group: alma_user
+
+    - name: Crear archivo vim
+      file:
+        path: /home/alma_user/.vimrc 
+        state: touch
+        mode: u=rw,g=r,o=r
+        owner: alma_user
+        group: alma_user
+
+    - name: Copiar archivo de nvim local a remoto
+      copy:
+        src: /home/luisam/.config/nvim/init.vim
+        dest: /home/alma_user/.config/nvim/
